@@ -7,6 +7,9 @@ package aco;
 
 import java.util.Set;
 
+import aco.graph.Graph;
+import aco.graph.Node;
+
 /**
  *
  * @author deb_c

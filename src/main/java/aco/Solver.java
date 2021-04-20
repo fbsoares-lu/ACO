@@ -5,6 +5,8 @@
  */
 package aco;
 
+import aco.graph.Graph;
+
 /**
  *
  * @author deb_c

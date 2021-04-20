@@ -5,8 +5,11 @@
  */
 package aco;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
+
+import aco.graph.Node;
 
 /**
  *
@@ -19,18 +22,23 @@ public class RouletteWheel {
 
     public RouletteWheel() {
     }
+
+	public Node returnChoice(double[] probabilities, ArrayList<Node> nodeNeighbors) {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
-    public Node returnChoice(Probability p, Set<Node> n){
-        Iterator<Node> nodeAsIterator = n.iterator();
-        Node choice = nodeAsIterator.next();
-        sum = p.calculaProbabilidade(choice);
-               
-        while(sum < u){
-            choice = nodeAsIterator.next();
-            sum += p.calculaProbabilidade(choice);
-        }
-        return choice;
-    }
+//    public Node returnChoice(Probability p, Set<Node> n){
+//        Iterator<Node> nodeAsIterator = n.iterator();
+//        Node choice = nodeAsIterator.next();
+//        sum = p.calculaProbabilidade(choice);
+//               
+//        while(sum < u){
+//            choice = nodeAsIterator.next();
+//            sum += p.calculaProbabilidade(choice);
+//        }
+//        return choice;
+//    }
     
     
 }
