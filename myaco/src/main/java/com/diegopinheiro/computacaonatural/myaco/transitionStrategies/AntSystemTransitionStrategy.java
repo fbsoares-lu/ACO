@@ -39,10 +39,10 @@ public class AntSystemTransitionStrategy extends TransitionStrategy {
 	}
 
 	private double calculateScore(NodeAdapter nodeIn, NodeAdapter nodeOut, Ant ant) {
-		double pheromone = ant.getPheromone(nodeIn, nodeOut);
-		double cost = 1/ant.findSolution().getCost();
-		
-		return Math.pow(pheromone, this.alpha) * Math.pow(cost, this.beta) ;
-	}
+        double pheromone = ant.getPheromone(nodeIn, nodeOut);
+        double cost = 1 /ant.getGraph().getEdge(nodeIn, nodeOut).getCost();
+
+        return Math.pow(pheromone, this.alpha) * Math.pow(cost, this.beta);
+    }
 
 }

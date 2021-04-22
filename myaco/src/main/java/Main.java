@@ -11,10 +11,12 @@ public class Main {
 		GraphAdapter graph = creator.createGraph();
 		int maxIterations = 10;
 		double alpha = 2;
+		double beta = 2;
 		int colonySize = 10;
 		TransitionStrategy transitionStrategy = new SACOTransitionStrategy(alpha);
-		
-		Solver solver = new Solver(maxIterations, colonySize, transitionStrategy);
-		
+		//TransitionStrategy transitionStrategy = new AntSystemTransitionStrategy(alpha, beta);
+        Solver solver = new Solver(maxIterations, colonySize, transitionStrategy);
+        solver.solve(graph);
+        //solver.toString();
 	}
 }
