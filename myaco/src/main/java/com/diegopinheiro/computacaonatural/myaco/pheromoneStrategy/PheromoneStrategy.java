@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pheromoneStrategy;
+package com.diegopinheiro.computacaonatural.myaco.pheromoneStrategy;
 
 import com.diegopinheiro.computacaonatural.myaco.colony.Ant;
 import com.diegopinheiro.computacaonatural.myaco.colony.Colony;
