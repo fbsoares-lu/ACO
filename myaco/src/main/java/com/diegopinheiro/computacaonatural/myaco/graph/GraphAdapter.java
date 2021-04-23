@@ -69,5 +69,9 @@ public class GraphAdapter {
 
 		return getEdge(nodeId, nodeOut).getPheromone();
 	}
+	
+	public ArrayList<EdgeAdapter> getEdges(){
+		return this.edges;
+	}
 
 }

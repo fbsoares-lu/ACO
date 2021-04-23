@@ -7,6 +7,7 @@ package com.diegopinheiro.computacaonatural.myaco.util;
 
 import com.diegopinheiro.computacaonatural.myaco.colony.Colony;
 import com.diegopinheiro.computacaonatural.myaco.graph.GraphAdapter;
+import com.diegopinheiro.computacaonatural.myaco.pheromoneStrategy.PheromoneStrategy;
 import com.diegopinheiro.computacaonatural.myaco.transitionStrategies.TransitionStrategy;
 
 
@@ -22,17 +23,18 @@ public class Solver {
 	private int colonySize;
 	private TransitionStrategy transitionStrategy;
 	private Solution bestSolution;
+	private PheromoneStrategy pheromoneStrategy;
 
-	public Solver(int maxIterations, int colonySize, TransitionStrategy transitionStrategy) {
+	public Solver(int maxIterations, int colonySize, TransitionStrategy transitionStrategy, PheromoneStrategy pheromoneStrategy) {
 		this.maxIterations = maxIterations;
 		this.colonySize = colonySize;
 		this.transitionStrategy = transitionStrategy;
 		this.bestSolution = null;
-		
+		this.pheromoneStrategy = pheromoneStrategy;
 	}
 	 
     public void solve(GraphAdapter graph) {
-    	Colony colony = new Colony(graph, this.colonySize, this.transitionStrategy);
+    	Colony colony = new Colony(graph, this.colonySize, this.transitionStrategy, pheromoneStrategy);
     	for(int i = 0; i < maxIterations; i ++) {
     		colony.findSolutions();
     	}

@@ -74,7 +74,11 @@ public class Ant {
 
 	public Solution findSolution(){
 		// ArrayList<NodeAdapter> unvisitedNodes = this.graph.getNodes();
-        this.unvisitedNodes = this.graph.getNodes();
+        this.unvisitedNodes = new ArrayList<NodeAdapter>();
+        
+        for(NodeAdapter unvisitedNode : this.graph.getNodes()) {
+        	this.unvisitedNodes.add(unvisitedNode);
+        }
     	
     	NodeAdapter firstRandomNode = this.getFirstNode();
     	
