@@ -11,6 +11,7 @@ import graph.EdgeAdapter;
 import graph.GraphAdapter;
 import graph.NodeAdapter;
 import java.util.ArrayList;
+import util.Solution;
 
 /**
  *
@@ -37,6 +38,20 @@ public class SACOPheromoneStrategy extends PheromoneStrategy {
     @Override
     public void updatePheromoneLocal(Ant ant) {
 
+    }
+
+    @Override
+    public void depositPheromone(Colony colony) {
+     
+        for(Ant ant: colony.getAnts()){
+            Solution solution =  ant.getSolution();
+            double reinforcement = 1/solution.getCost();
+            for(EdgeAdapter edgeAdapter : solution.getVisitedEdges()){
+                double pheromone = edgeAdapter.getPheromone();
+                pheromone += reinforcement;
+                edgeAdapter.setPheromone(pheromone);
+            }
+        }
     }
 
 }

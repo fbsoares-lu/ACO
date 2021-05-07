@@ -39,6 +39,10 @@ public class Solution {
         this.visitedNodes.add(node);
     }
 
+    public ArrayList<EdgeAdapter> getVisitedEdges() {
+        return visitedEdges;
+    }
+
     public void closeSolution() {
         NodeAdapter firstNode = this.visitedNodes.get(0);
         this.addNode(firstNode);

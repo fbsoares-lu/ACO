@@ -26,6 +26,7 @@ public class Ant {
     private TransitionStrategy transitionStrategy;
     private ArrayList<NodeAdapter> unvisitedNodes;
     private RouletteWheel rouletteWheel;
+    
 
     public Ant(int id,
             GraphAdapter graph,
@@ -91,13 +92,17 @@ public class Ant {
         }
 
         foundSolution.closeSolution();
-
+        this.currentSolution =foundSolution;
         return foundSolution;
     }
 
     public void depositPheromone() {
         double cost = this.currentSolution.getCost();
 
+    }
+    
+    public Solution getSolution(){
+        return this.currentSolution;
     }
 
     private NodeAdapter choseNextNode(Solution foundSolution) {

@@ -64,11 +64,12 @@ public class Colony {
             currentSolutions.add(currentSolution);
             if (currentSolution.getCost() < this.bestSolution.getCost()) {
                 this.bestSolution = currentSolution;
-                
+
             }
 
-            updatePheromone();
         }
+        evaporatePheromone();
+        this.pheromonesStrategy.depositPheromone(this);
         System.out.println(bestSolution.getCost());
         this.currentSolutions = currentSolutions;
     }
@@ -77,7 +78,7 @@ public class Colony {
         return graph;
     }
 
-    public void updatePheromone() {
+    public void evaporatePheromone() {
         this.pheromonesStrategy.updatePheromoneGlobal(this);
         for (Ant ant : this.ants) {
             this.pheromonesStrategy.updatePheromoneLocal(ant);
@@ -88,6 +89,10 @@ public class Colony {
         for (EdgeAdapter edge : this.graph.getEdges()) {
             edge.setPheromone(Math.random());
         }
+    }
+    
+    public ArrayList<Ant> getAnts(){
+        return this.ants;
     }
 
 }

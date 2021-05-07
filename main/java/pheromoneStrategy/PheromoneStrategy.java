@@ -17,5 +17,7 @@ public abstract class PheromoneStrategy {
     public abstract void updatePheromoneGlobal(Colony colony);
 
     public abstract void updatePheromoneLocal(Ant ant);
+    
+    public abstract void depositPheromone(Colony colony);
 
 }
