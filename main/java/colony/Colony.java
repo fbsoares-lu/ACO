@@ -8,6 +8,7 @@ package colony;
 import graph.EdgeAdapter;
 import graph.GraphAdapter;
 import java.util.ArrayList;
+import java.util.Random;
 import pheromoneStrategy.PheromoneStrategy;
 import pheromoneStrategy.SACOPheromoneStrategy;
 import transitionStrategies.TransitionStrategy;
@@ -70,7 +71,7 @@ public class Colony {
         }
         evaporatePheromone();
         this.pheromonesStrategy.depositPheromone(this);
-        System.out.println(bestSolution.getCost());
+        System.out.println("Custo da itração " + bestSolution.getCost());
         this.currentSolutions = currentSolutions;
     }
 
@@ -86,8 +87,10 @@ public class Colony {
     }
 
     private void initializePheromone() {
+        double a = .49999;
+        double b = .50001;
         for (EdgeAdapter edge : this.graph.getEdges()) {
-            edge.setPheromone(Math.random());
+            edge.setPheromone(a + (b - a) * Math.random());
         }
     }
     

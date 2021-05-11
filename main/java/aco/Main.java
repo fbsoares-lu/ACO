@@ -26,22 +26,22 @@ import transitionStrategies.TransitionStrategy;
 public class Main {
 
     public static void main(String[] args) {
-        GraphCreator creator = new Att48GraphCreator();
-        //GraphCreator creator = new Eil51GraphCreator();
-        GraphAdapter graph = creator.createGraph(); // cria grafo do Att48
+            GraphCreator creator = new Att48GraphCreator();
+            //GraphCreator creator = new Eil51GraphCreator();
+            GraphAdapter graph = creator.createGraph();
 
-        int maxIterations = 100;
-        double alpha = .9;
-        double beta = 2;
-        int colonySize = 50; // qtd de formiga
-        double rho = .5;
-        double q = 20;
-        //PheromoneStrategy pheromoneStrategy = new SACOPheromoneStrategy(rho);
-        PheromoneStrategy pheromoneStrategy = new ASPheromoneStrategy(rho,q);
-        //TransitionStrategy transitionStrategy = new SACOTransitionStrategy(alpha); // escolhe o tipo de transicao
-        TransitionStrategy transitionStrategy = new AntSystenTransitionStrategy(alpha, beta);
-        Solver solver = new Solver(maxIterations, colonySize, transitionStrategy, pheromoneStrategy);
-        solver.solve(graph);
+            int maxIterations = 1000;
+            double alpha = .9;
+            double beta = 2;
+            int colonySize = 50; // qtd de formiga
+            double rho = .00004;
+            double q = 20;
+            PheromoneStrategy pheromoneStrategy = new SACOPheromoneStrategy(rho);
+            //PheromoneStrategy pheromoneStrategy = new ASPheromoneStrategy(rho, q);
+            TransitionStrategy transitionStrategy = new SACOTransitionStrategy(alpha); // escolhe o tipo de transicao
+            //TransitionStrategy transitionStrategy = new AntSystenTransitionStrategy(alpha, beta);
+            Solver solver = new Solver(maxIterations, colonySize, transitionStrategy, pheromoneStrategy);
+            solver.solve(graph);
 
     }
 

@@ -6,7 +6,11 @@
 package util;
 
 import colony.Colony;
+import graph.EdgeAdapter;
 import graph.GraphAdapter;
+import graph.NodeAdapter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import pheromoneStrategy.PheromoneStrategy;
 import transitionStrategies.TransitionStrategy;
@@ -33,10 +37,30 @@ public class Solver {
 
     public void solve(GraphAdapter graph) {
         Colony colony = new Colony(graph, this.colonySize, this.transitionStrategy, pheromoneStrategy);
+
         for (int i = 0; i < maxIterations; i++) {
+            
+            if(i% 10 == 0){
+                System.out.println(" iteration " + i + " :" );
+                printPheromone(graph);
+            }
             colony.findSolutions();
         }
         System.out.println("grafo final " + colony.getBestSolution().toString());
 
     }
+
+    public void printPheromone(GraphAdapter graph) {
+        double[][] matrix = graph.getPheromoneMatrix();
+
+        for (int i = 0; i < matrix.length; i++) {
+            String line = "";
+            for (int j = 0; j < matrix.length; j++) {
+                line += String.format("%.3f", matrix[i][j]) + " , ";
+            }
+            System.out.println(line);
+        }
+
+    }
+
 }

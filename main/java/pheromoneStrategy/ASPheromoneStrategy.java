@@ -35,7 +35,7 @@ public class ASPheromoneStrategy extends PheromoneStrategy {
             edge.setPheromone(reducedPheromone);
         }
 
-        double sum = 0;
+        /*double sum = 0;
 
         for (EdgeAdapter edge : graph.getEdges()) {
             sum += edge.getPheromone();
@@ -44,7 +44,7 @@ public class ASPheromoneStrategy extends PheromoneStrategy {
         for (EdgeAdapter edge : graph.getEdges()) {
             double newPheromone = edge.getPheromone() + sum;
             edge.setPheromone(newPheromone);
-        }
+        }*/
     }
 
     @Override
